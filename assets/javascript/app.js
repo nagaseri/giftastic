@@ -63,7 +63,18 @@ function displayGIFs(){
 $(document).on("click", ".new-animals", displayGIFs)
 	
 //on click function on gif 
-$(document).on("click", ".gif img-responsive", function(){
+$(document).on("click", ".gif", function(){
+
+if (state === "still") {
+        $(this).attr("src", animate );
+        $(this).attr("data-state", "animate");
+      } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+      }
+
+	var state = $(this).attr("data-state");
+	console.log(still);
 	//create variable for still state
 	var still = $(this).attr("data-still");
 	//create variable for animated state
